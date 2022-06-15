@@ -151,6 +151,7 @@ func (c *RestClient) buildRestReponse(resp *gjrc.GjrcResponse) RestReponse {
 		result.StatusCode = resp.StatusCode()
 		result.RespBody, _ = resp.Body()
 		result.RespHeader = make(map[string]string)
+		defer resp.HttpResponse().Body.Close()
 		for k, v := range resp.HttpResponse().Header {
 			if len(v) > 0 {
 				result.RespHeader[k] = v[0]
