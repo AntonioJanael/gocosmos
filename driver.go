@@ -1,6 +1,7 @@
 package gocosmos
 
 import (
+	"crypto/tls"
 	"database/sql"
 	"database/sql/driver"
 	"encoding/binary"
@@ -8,6 +9,8 @@ import (
 	"net"
 	"strings"
 	"time"
+	"net/http"
+	"sync"
 
 	"github.com/btnguyen2k/consu/olaf"
 )
